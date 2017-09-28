@@ -4,4 +4,21 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#new_question_form').on("submit", function(){
+    event.preventDefault();
+    var $form = $(this);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+    var data = $form.serialize();
+
+    var request = $.ajax({
+      url: url,
+      method: method,
+      data: data
+    });
+    request.done(function(response){
+      alert("It WORKED!");
+      console.log(response);
+    })
+  })
 });

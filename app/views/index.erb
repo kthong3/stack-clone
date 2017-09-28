@@ -13,10 +13,10 @@
   </article>
 </div>
 <div>
-  <% if session[:user_id] %>
+  <% if logged_in? %>
   <button id="new_question_button" class="new-question-button button center">New Question</button>
-        <form id="new_question_form" class="center hidden">
-          <label for="question_text">Comment:<br></label>
+        <form action="/questions/new" method="post" id="new_question_form">
+          <label for="question_text">Question:<br></label>
           <textarea id="question_text" name="question_text"></textarea><br>
           <input type="submit" class="button" value="Submit Question"></input>
         </form>
