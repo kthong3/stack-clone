@@ -1,19 +1,15 @@
 <div>
   <article>
     <% @questions.each do |question| %>
-    <form method="post" action='/'>
+      <form method="post" action='/'>
       <button type="submit" name="submit"></button>
-    </form>
-      <h2><a href="/questions/<%= question.id %>"><%= question.question_text %></a></h2>
-      <ul>
-        <li>by: <%= question.poster.username %></li>
-
-      </ul>
+      <%= erb :'questions/_display_form', locals: {question: question} %>
+</form>
     <% end %>
   </article>
 </div>
 <div>
-  <% if logged_in? %>
+  <% if current_user %>
   <button id="new_question_button" class="new-question-button button center">New Question</button>
         <form action="/questions/new" method="post" id="new_question_form">
           <label for="question_text">Question:<br></label>

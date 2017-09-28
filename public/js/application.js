@@ -17,7 +17,8 @@ $(document).ready(function() {
       data: data
     });
     request.done(function(response){
-      alert("It WORKED!");
+      $('textarea#question_text').val("");
+      $('article').append(response);
       console.log(response);
     })
   })

@@ -4,14 +4,15 @@ get '/questions/:id' do
 end
 
 post '/questions/new' do
-  p params["question_text"]
   @questions = Question.all
-  @question = Question.new(question_text: params["question_text"])
-  p @question
+  @question = Question.new(question_text: params["question_text"], poster_id: current_user.id)
   if request.xhr?
-    erb :index, layout: false
+   if @question.save
+      erb :'questions/_display_form',  locals: {question: @question}, layout: false
+    end
   else
-    p "It didn't work at all"
-    erb :index
+    if @question.save
+      erb :index
+    end
   end
 end
