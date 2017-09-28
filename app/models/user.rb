@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :comments, foreign_key: :poster_id
 
   validates :username, :first_name, :last_name, :email, presence: true
+  validates :username, :email, uniqueness: true
 
   validate :validate_password
 

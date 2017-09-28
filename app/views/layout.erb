@@ -16,9 +16,18 @@
     <div>
       <nav>
         <ul>
-            <li><a href='/users/new'>Register</a></li>
-            <li><a href="/sessions/new">login</a></li>
+          <% if logged_in? %>
+          <li><a href="/users/<%= current_user.id %>">Hello, <%= current_user.username %></a></li>
+          <li><form method="POST" action="/sessions">
+              <input type="hidden" name="_method" value="DELETE" />
+              <input type="submit" class="button" value="Log Out" />
+            </form>
+          </li>
+          <% else %>
             <li><a href="/">Home</a></li>
+            <li><a href='/users/new'>Register</a></li>
+            <li><a href="/sessions/new">Log In</a></li>
+            <% end %>
         </ul>
       </nav>
     </div>
