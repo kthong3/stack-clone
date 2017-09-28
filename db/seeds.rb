@@ -17,8 +17,10 @@ Answer.create(answer_text: "I'm going to say no.", question_id: 3, poster_id: 2)
 Answer.create(answer_text: "I Dream of Falafel", question_id: 4, poster_id: 2)
 Answer.create(answer_text: "Bunnies", question_id: 2, poster_id: 2)
 
-Comment.create(comment_text: "Santa Claus is totally 30 years old", poster_id: 3)
-Comment.create(comment_text:"Who is Eleanor?", poster_id: 4)
+Question.find(3).comments << Comment.create(comment_text:"Who is Eleanor?", poster_id: 4)
 
-Vote.create(up_down_vote: -1, poster_id: 2)
-Vote.create(up_down_vote: 1, poster_id: 1)
+Answer.find(1).comments << Comment.create(comment_text: "Santa Claus is totally 30 years old", poster_id: 3)
+
+Answer.find(3).votes << Vote.create(up_down_vote: 1, poster_id: 1)
+
+Question.find(4).votes << Vote.create(up_down_vote: -1, poster_id: 2)
