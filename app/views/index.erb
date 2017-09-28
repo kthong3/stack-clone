@@ -1,0 +1,14 @@
+<div>
+  <article>
+    <% @questions.each do |question| %>
+    <form method="post" action='/'>
+      <button type="submit" name="submit"></button>
+    </form>
+      <h2><a href="#"><%= question.question_text %></a></h2>
+      <ul>
+        <li>by: <%= question.poster.username %></li>
+
+      </ul>
+    <% end %>
+  </article>
+</div>
