@@ -1,0 +1,13 @@
+<h3>Profile Page</h3>
+
+<h4><%= @user.username %>'s Questions</h4>
+
+<% if @user.questions.any? %>
+<ul>
+  <% @user.questions.each do |question|%>
+  <li><%= question.question_text %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>This user hasn't created any questions</p>
+<% end %>
