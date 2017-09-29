@@ -16,7 +16,7 @@
   </ul>
   <%= erb :'questions/_display_question_comment_button', locals: {question: @question} %>
 
-<article>
+<article id="star_answer">
     <% @question.answers.each do |answer| %>
       <form id="question-up-vote" method="post" action='/questions/<%= @question.id %>/votes'>
         <input type="hidden" value="1" name="vote_value">

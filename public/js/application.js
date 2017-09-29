@@ -104,10 +104,8 @@ $(document).ready(function() {
     })
   });
 
-  $("#best_answer").on("click", function() {
-
-    // var hahah = $(this);
-    // console.log(hahah);
+  $("#star_answer").on("click", "#best_answer", function() {
+    $("#best_answer.active").removeClass('active');
     $(this).addClass('active');
   });
 
