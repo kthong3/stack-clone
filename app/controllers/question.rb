@@ -35,3 +35,21 @@ post '/questions/:id/comments/new' do
     end
   end
 end
+
+
+### ADD AN AUTHORIZATION FOR GET & PUT VERBS
+get '/questions/:id/edit' do
+  @question = Question.find(params[:id])
+  erb :'questions/edit'
+end
+
+put '/questions/:id' do
+  @question = Question.find(params[:id])
+  @question.assign_attributes(question_text: params[:question_text])
+
+  if @question.save
+    redirect "questions/#{@question.id}"
+  end
+end
+
+

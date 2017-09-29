@@ -1,5 +1,6 @@
 <div>
   <h1><%= @question.question_text %></h1>
+  <p> <a href="/questions/<%= @question.id %>/edit"> EDIT THIS SHIT </a></p>
   <p>Plus votes: <%= @question.positive_vote_count %></p>
   <p>Negative votes: <%= @question.negative_vote_count %></p>
   <p>Total votes: <%= @question.total_vote_count %></p>

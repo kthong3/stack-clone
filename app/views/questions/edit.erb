@@ -1,0 +1,7 @@
+<form method= "post" action="/questions/<%= @question.id %>">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="question_text">Question:</label>
+  <textarea name="question_text" value="<%= @question.try(:question_text) %>"></textarea>
+  <input type="submit" value="Update Question">
+</form>
