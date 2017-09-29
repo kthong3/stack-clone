@@ -4,6 +4,11 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#new_question_button').click(function(){
+    $('#new_question_button').hide();
+    $('#new_question_form').show();
+  });
+
   $('#new_question_form').on("submit", function(){
     event.preventDefault();
     var $form = $(this);
@@ -19,6 +24,34 @@ $(document).ready(function() {
     request.done(function(response){
       $('textarea#question_text').val("");
       $('article').append(response);
+      $('#new_question_form').hide();
+      $('#new_question_button').show();
+      console.log(response);
+    })
+  })
+
+  $('#new_answer_button').click(function(){
+    $('#new_answer_button').hide();
+    $('#new_answer_form').show();
+  });
+
+  $('#new_answer_form').on("submit", function(){
+    event.preventDefault();
+    var $form = $(this);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+    var data = $form.serialize();
+
+    var request = $.ajax({
+      url: url,
+      method: method,
+      data: data
+    });
+    request.done(function(response){
+      $('textarea#answer_text').val("");
+      $('article').append(response);
+      $('#new_answer_form').hide();
+      $('#new_answer_button').show();
       console.log(response);
     })
   })
