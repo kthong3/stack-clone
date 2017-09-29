@@ -18,3 +18,20 @@ post '/questions/new' do
     end
   end
 end
+
+post '/questions/:id/comments/new' do
+  authenticate!
+  @question = Question.find(params[:question_id])
+  @comment = Comment.new(comment_text: params["comment_text"], poster_id: current_user.id)
+  if request.xhr?
+   if @comment.save
+    @question.comments << @comment
+    erb :'questions/_display_new_comment',  locals: {comment: @comment}, layout: false
+    end
+  else
+    if @comment.save
+      @question.comments << @comment
+      redirect "/questions/#{@question.id}"
+    end
+  end
+end
