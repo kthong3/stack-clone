@@ -37,7 +37,7 @@ post '/questions/:id/comments/new' do
 end
 
 
-### ADD AN AUTHORIZATION FOR GET & PUT VERBS
+### ADD AN AUTHORIZATION FOR GET & PUT& DELETE VERBS
 get '/questions/:id/edit' do
   @question = Question.find(params[:id])
   erb :'questions/edit'
@@ -50,6 +50,12 @@ put '/questions/:id' do
   if @question.save
     redirect "questions/#{@question.id}"
   end
+end
+
+delete '/questions/:id' do
+  @question = Question.find(params[:id])
+  @question.destroy
+  redirect '/'
 end
 
 
