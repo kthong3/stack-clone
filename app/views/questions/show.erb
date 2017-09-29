@@ -1,5 +1,12 @@
 <div>
   <h1><%= @question.question_text %></h1>
-
-
+<article>
+    <% @question.answers.each do |answer| %>
+      <form method="post" action='/questions/<%= @question.id %>'>
+        <button type="submit" name="submit"></button>
+        <%= erb :'questions/_display_answer', locals: {answer: answer} %>
+      </form>
+    <% end %>
+  </article>
 </div>
+
