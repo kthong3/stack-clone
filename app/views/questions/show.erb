@@ -4,6 +4,34 @@
   <p>Negative votes: <%= @question.negative_vote_count %></p>
   <p>Total votes: <%= @question.total_vote_count %></p>
 
+<div id="topic" class="upvote">
+    <a class="upvote"></a>
+    <span class="count">0</span>
+    <a class="downvote"></a>
+    <a class="star"></a>
+</div>
+
+<div id="topic" class="upvote">
+    <a class="upvote upvote-on"></a>
+    <span class="count">6</span>
+    <a class="downvote"></a>
+    <a class="star"></a>
+</div>
+
+<div id="topic" class="upvote">
+    <a class="upvote"></a>
+    <span class="count">4</span>
+    <a class="downvote downvote-on"></a>
+    <a class="star"></a>
+</div>
+
+<div id="topic" class="upvote">
+    <a class="upvote"></a>
+    <span class="count">5</span>
+    <a class="downvote"></a>
+    <a class="star star-on"></a>
+</div>
+
   <ul class="question">
   <% @question.comments.each do |comment| %>
     <%= erb :'questions/_display_new_comment', locals: {comment: comment} %>
@@ -32,4 +60,5 @@
         </form>
   <% end %>
 </div>
+
 
