@@ -6,3 +6,16 @@
   <li> by: <%= comment.poster.username %></li>
   <% end %>
 </ul>
+  <div>
+    <% if current_user %>
+      <button id="new_comment_button" class="new-comment-button button center">New Comment</button>
+      <p>FORM DOES NOT WORK YET!!! THIS IS A COMMENT!</p>
+      <form action="/comments/new" method="post" id="new_comment_form">
+        <label for="comment_text">Comment:<br></label>
+        <textarea id="comment_text" name="comment_text"></textarea><br>
+        <input type="hidden" value="<%= answer.id%>" name="answer_id">
+        <input type="submit" class="button" value="Submit Comment">
+      </form>
+    <% end %>
+  </div>
+
