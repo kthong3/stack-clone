@@ -103,4 +103,12 @@ $(document).ready(function() {
       $('#new_question_comment_button').show();
     })
   });
+
+  $("#best_answer").on("click", function() {
+
+    // var hahah = $(this);
+    // console.log(hahah);
+    $(this).addClass('active');
+  });
+
 });
