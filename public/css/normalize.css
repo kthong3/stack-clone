@@ -421,3 +421,7 @@ td,
 th {
   padding: 0;
 }
+
+#new_question_form {
+  display: none;
+}

@@ -9,4 +9,15 @@
     <% end %>
   </article>
 </div>
+<div>
+  <% if current_user %>
+  <button id="new_answer_button" class="new-answer-button button center">New Answer</button>
+        <form action="/answers/new" method="post" id="new_answer_form">
+          <label for="answer_text">Answer:<br></label>
+          <textarea id="answer_text" name="answer_text"></textarea><br>
+          <input type="hidden" value="<%= @question.id%>" name="question_id">
+          <input type="submit" class="button" value="Submit Answer"></input>
+        </form>
+  <% end %>
+</div>
 

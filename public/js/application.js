@@ -4,6 +4,11 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#new_question_button').click(function(){
+    $('#new_question_button').hide();
+    $('#new_question_form').show();
+  });
+
   $('#new_question_form').on("submit", function(){
     event.preventDefault();
     var $form = $(this);
@@ -19,6 +24,8 @@ $(document).ready(function() {
     request.done(function(response){
       $('textarea#question_text').val("");
       $('article').append(response);
+      $('#new_question_form').hide();
+      $('#new_question_button').show();
       console.log(response);
     })
   })
