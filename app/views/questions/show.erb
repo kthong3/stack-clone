@@ -5,10 +5,11 @@
   <p>Total votes: <%= @question.total_vote_count %></p>
 <article>
     <% @question.answers.each do |answer| %>
-      <form method="post" action='/questions/<%= @question.id %>'>
+      <form id="question-vote" method="post" action='/questions/<%= @question.id %>'>
         <button type="submit" name="submit"></button>
-        <%= erb :'questions/_display_answer', locals: {answer: answer} %>
       </form>
+        <%= erb :'questions/_display_answer', locals: {answer: answer} %>
+        <%= erb :'questions/_display_comment', locals: {answer: answer} %>
     <% end %>
   </article>
 </div>

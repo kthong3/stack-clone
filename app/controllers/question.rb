@@ -4,6 +4,8 @@ get '/questions/:id' do
 end
 
 post '/questions/new' do
+  authenticate!
+
   @questions = Question.all
   @question = Question.new(question_text: params["question_text"], poster_id: current_user.id)
   if request.xhr?

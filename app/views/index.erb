@@ -2,19 +2,19 @@
   <article>
     <% @questions.each do |question| %>
       <form method="post" action='/'>
-      <button type="submit" name="submit"></button>
-      <%= erb :'questions/_display_form', locals: {question: question} %>
-</form>
+        <button id='vote' type="submit" name="submit"></button>
+        <%= erb :'questions/_display_question', locals: {question: question} %>
+      </form>
     <% end %>
   </article>
 </div>
 <div>
   <% if current_user %>
   <button id="new_question_button" class="new-question-button button center">New Question</button>
-        <form action="/questions/new" method="post" id="new_question_form">
-          <label for="question_text">Question:<br></label>
-          <textarea id="question_text" name="question_text"></textarea><br>
-          <input type="submit" class="button" value="Submit Question"></input>
-        </form>
+      <form action="/questions/new" method="post" id="new_question_form">
+        <label for="question_text">Question:<br></label>
+        <textarea id="question_text" name="question_text"></textarea><br>
+        <input type="submit" class="button" value="Submit Question"></input>
+      </form>
   <% end %>
 </div>

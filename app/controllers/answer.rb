@@ -1,4 +1,6 @@
 post '/answers/new' do
+  authenticate!
+
   @answer = Answer.new(answer_text: params["answer_text"], poster_id: current_user.id, question_id: params[:question_id])
   if request.xhr?
    if @answer.save
