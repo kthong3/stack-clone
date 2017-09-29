@@ -3,13 +3,21 @@
   <p>Plus votes: <%= @question.positive_vote_count %></p>
   <p>Negative votes: <%= @question.negative_vote_count %></p>
   <p>Total votes: <%= @question.total_vote_count %></p>
+
+  <ul class="question">
+  <% @question.comments.each do |comment| %>
+    <%= erb :'questions/_display_new_comment', locals: {comment: comment} %>
+  <% end %>
+  </ul>
+  <%= erb :'questions/_display_question_comment_button', locals: {question: @question} %>
+
 <article>
     <% @question.answers.each do |answer| %>
       <form id="question-vote" method="post" action='/questions/<%= @question.id %>'>
         <button type="submit" name="submit"></button>
       </form>
         <%= erb :'questions/_display_answer', locals: {answer: answer} %>
-        <%= erb :'questions/_display_comment', locals: {answer: answer} %>
+        <%= erb :'questions/_display_answer_comment_button', locals: {answer: answer} %>
     <% end %>
   </article>
 </div>

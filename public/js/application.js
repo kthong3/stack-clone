@@ -54,7 +54,12 @@ $(document).ready(function() {
     })
   })
 
-  $('#new_comment_form').on('submit', function(){
+   $('#new_answer_comment_button').click(function(){
+    $('#new_answer_comment_button').hide();
+    $('#new_answer_comment_form').show();
+  });
+
+  $('#new_answer_comment_form').on('submit', function(){
     event.preventDefault();
     var $form = $(this);
     var url = $form.attr("action");
@@ -67,8 +72,35 @@ $(document).ready(function() {
       data: data
     })
     request.done(function(response){
-      var textarea = $('textarea#comment_text').val();
-      console.log(textarea);
+      $('textarea#answer_comment_text').val("");
+      $('.answer').append(response);
+      $('#new_answer_comment_form').hide();
+      $('#new_answer_comment_button').show();
+    })
+  });
+
+  $('#new_question_comment_button').click(function(){
+    $('#new_question_comment_button').hide();
+    $('#new_question_comment_form').show();
+  });
+
+  $('#new_question_comment_form').on('submit', function(){
+    event.preventDefault();
+    var $form = $(this);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+    var data = $form.serialize();
+
+    var request = $.ajax({
+      url: url,
+      method: method,
+      data: data
+    })
+    request.done(function(response){
+      $('textarea#question_comment_text').val("");
+      $('.question').append(response);
+      $('#new_question_comment_form').hide();
+      $('#new_question_comment_button').show();
     })
   });
 });
