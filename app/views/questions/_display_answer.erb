@@ -2,9 +2,19 @@
    <button type="button" id="best_answer">STAR</button>
 <ul>
   <li>by: <%= answer.poster.username %></li>
-  <p>Plus votes: <%= answer.positive_vote_count %></p>
-  <p>Negative votes: <%= answer.negative_vote_count %></p>
-  <p>Total votes: <%= answer.total_vote_count %></p>
+
+  <form id="answer-up-vote" method="post" action='/answers/<%= answer.id %>/votes'>
+    <input type="hidden" value="1" name="vote_value">
+    <button type="submit" name="submit"></button>
+  </form>
+
+  <%= erb :'questions/_display_answer_vote_count', locals: {answer: answer} %>
+
+  <form id="answer-down-vote" method="post" action='/answers/<%= answer.id %>/votes'>
+    <input type="hidden" value="-1" name="vote_value">
+    <button type="submit" name="submit"></button>
+  </form>
+
   <li><a href="/answers/<%= answer.id %>/edit"> EDIT THIS ANSWER </a> |
   <form action="/answers/<%= answer.id %>" method="post">
     <input type="hidden" name="_method" value="delete">

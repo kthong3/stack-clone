@@ -104,9 +104,83 @@ $(document).ready(function() {
     })
   });
 
+
   $("#star_answer").on("click", "#best_answer", function() {
     $("#best_answer.active").removeClass('active');
     $(this).addClass('active');
+  });
+
+
+  $('#question-up-vote').on('submit', function(){
+    event.preventDefault();
+
+    var $form = $(this);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+    var data = {vote_value: 1};
+
+    var request = $.ajax({
+      url: url,
+      method: method,
+      data: data
+    })
+    request.done(function(response){
+      $('#total_votes').empty().append(response);
+    })
+  });
+
+  $('#question-down-vote').on('submit', function(){
+    event.preventDefault();
+
+    var $form = $(this);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+    var data = {vote_value: -1};
+
+    var request = $.ajax({
+      url: url,
+      method: method,
+      data: data
+    })
+    request.done(function(response){
+      $('#total_votes').empty().append(response);
+    })
+  });
+
+    $('#answer-up-vote').on('submit', function(){
+    event.preventDefault();
+
+    var $form = $(this);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+    var data = {vote_value: 1};
+
+    var request = $.ajax({
+      url: url,
+      method: method,
+      data: data
+    })
+    request.done(function(response){
+      $('.total_votes').empty().append(response);
+    })
+  });
+
+  $('#answer-down-vote').on('submit', function(){
+    event.preventDefault();
+
+    var $form = $(this);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+    var data = {vote_value: -1};
+
+    var request = $.ajax({
+      url: url,
+      method: method,
+      data: data
+    })
+    request.done(function(response){
+      $('.total_votes').empty().append(response);
+    })
   });
 
 });
