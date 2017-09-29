@@ -29,3 +29,24 @@ post '/answers/:id/comments/new' do
     end
   end
 end
+
+### ADD AN AUTHORIZATION FOR GET & PUT& DELETE VERBS
+get '/answers/:id/edit'
+  @answer = Answer.find(params[:id])
+  erb :'answers/edit'
+end
+
+put '/answers/:id' do
+  @answer = Answer.find(params[:id])
+  @answer.assign_attributes(answer_text: params[:answer_text])
+
+  if @answer.save
+    redirect "questions/#{@answer.question_id}"
+  end
+end
+
+delete '/answers/:id' do
+  @answer = Answer.find(params[:id])
+  @answer.destroy
+  redirect "questions/#{@answer.question_id}"
+end
