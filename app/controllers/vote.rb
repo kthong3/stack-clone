@@ -7,7 +7,7 @@ post '/questions/:id/votes' do
     if request.xhr?
       # content_type :json
       # {count: @question.total_vote_count}.to_json
-      erb :'questions/_display_vote_count',  locals: {question: @question}, layout: false
+      erb :'questions/_display_question_vote_count',  locals: {question: @question}, layout: false
     else
       redirect "/questions/#{params[:id]}"
     end
@@ -16,7 +16,7 @@ post '/questions/:id/votes' do
     @question.down_vote(current_user.id)
 
     if request.xhr?
-      erb :'questions/_display_vote_count',  locals: {question: @question}, layout: false
+      erb :'questions/_display_question_vote_count',  locals: {question: @question}, layout: false
     else
       redirect "/questions/#{params[:id]}"
     end
