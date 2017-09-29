@@ -2,6 +2,6 @@
   <input type="hidden" name="_method" value="put">
 
   <label for="answer_text">Answer:</label>
-  <textarea name="answer_text" value="<%= @question.try(:answer_text) %>"></textarea>
+  <textarea name="answer_text" value="<%= @answer.answer_text %>" placeholder="Edit Answer"><%= @answer.answer_text %></textarea>
   <input type="submit" value="Update Answer">
 </form>

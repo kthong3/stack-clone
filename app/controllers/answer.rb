@@ -38,6 +38,7 @@ end
 
 put '/answers/:id' do
   @answer = Answer.find(params[:id])
+  p @answer
   @answer.assign_attributes(answer_text: params[:answer_text])
 
   if @answer.save
