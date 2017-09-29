@@ -1,5 +1,16 @@
 <div>
   <h1><%= @question.question_text %></h1>
+      <form id="question-up-vote" method="post" action='/questions/<%= @question.id %>/votes'>
+        <input type="hidden" value="1" name="vote_value">
+        <button type="submit" name="submit"></button>
+      </form>
+
+      <%= erb :'questions/_display_vote_count', locals: {question: @question} %>
+
+      <form id="question-down-vote" method="post" action='/questions/<%= @question.id %>/votes'>
+        <input type="hidden" value="-1" name="vote_value">
+        <button type="submit" name="submit"></button>
+      </form>
   <p> <a href="/questions/<%= @question.id %>/edit"> EDIT THIS SHIT </a></p>
   <p> <form action="/questions/<%= @question.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
@@ -15,17 +26,6 @@
 
 <article>
     <% @question.answers.each do |answer| %>
-      <form id="question-up-vote" method="post" action='/questions/<%= @question.id %>/votes'>
-        <input type="hidden" value="1" name="vote_value">
-        <button type="submit" name="submit"></button>
-      </form>
-
-      <%= erb :'questions/_display_vote_count', locals: {question: @question} %>
-
-      <form id="question-down-vote" method="post" action='/questions/<%= @question.id %>/votes'>
-        <input type="hidden" value="-1" name="vote_value">
-        <button type="submit" name="submit"></button>
-      </form>
         <%= erb :'questions/_display_answer', locals: {answer: answer} %>
         <%= erb :'questions/_display_answer_comment_button', locals: {answer: answer} %>
     <% end %>
@@ -42,11 +42,3 @@
         </form>
   <% end %>
 </div>
-
-<div id="topic" class="upvote">
-    <a class="upvote"></a>
-    <span class="count">5</span>
-    <a class="downvote"></a>
-    <a class="star star-on"></a>
-</div>
-

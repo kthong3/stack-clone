@@ -118,7 +118,6 @@ $(document).ready(function() {
       data: data
     })
     request.done(function(response){
-      console.log(response);
       $('#total_votes').empty().append(response);
     })
   });
@@ -137,7 +136,6 @@ $(document).ready(function() {
       data: data
     })
     request.done(function(response){
-      console.log(response);
       $('#total_votes').empty().append(response);
     })
   });
