@@ -22,3 +22,26 @@ post '/questions/:id/votes' do
     end
   end
 end
+
+post '/answers/:id/votes' do
+  @answer = Answer.find(params[:id])
+
+  if params[:vote_value] == "1"
+    @answer.up_vote(current_user.id)
+
+    if request.xhr?
+      erb :'questions/_display_answer_vote_count',  locals: {answer: @answer}, layout: false
+    else
+      redirect "/questions/#{@answer.question_id}"
+    end
+
+  else
+    @answer.down_vote(current_user.id)
+
+    if request.xhr?
+      erb :'questions/_display_answer_vote_count',  locals: {answer: @answer}, layout: false
+    else
+      redirect "/questions/#{@answer.question_id}"
+    end
+  end
+end
