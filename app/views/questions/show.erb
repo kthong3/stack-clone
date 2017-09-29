@@ -8,7 +8,6 @@
   </p>
   <p>Plus votes: <%= @question.positive_vote_count %></p>
   <p>Negative votes: <%= @question.negative_vote_count %></p>
-  <p>Total votes: <%= @question.total_vote_count %></p>
 
   <ul class="question">
   <% @question.comments.each do |comment| %>
@@ -19,7 +18,13 @@
 
 <article>
     <% @question.answers.each do |answer| %>
-      <form id="question-vote" method="post" action='/questions/<%= @question.id %>'>
+      <form id="question-up-vote" method="post" action='/questions/<%= @question.id %>/votes'>
+        <input type="hidden" value="1" name="vote_value">
+        <button type="submit" name="submit"></button>
+      </form>
+  <p>Total votes: <%= @question.total_vote_count %></p>
+      <form id="question-down-vote" method="post" action='/questions/<%= @question.id %>/votes'>
+        <input type="hidden" value="-1" name="vote_value">
         <button type="submit" name="submit"></button>
       </form>
         <%= erb :'questions/_display_answer', locals: {answer: answer} %>
@@ -37,5 +42,12 @@
           <input type="submit" class="button" value="Submit Answer"></input>
         </form>
   <% end %>
+</div>
+
+<div id="topic" class="upvote">
+    <a class="upvote"></a>
+    <span class="count">5</span>
+    <a class="downvote"></a>
+    <a class="star star-on"></a>
 </div>
 

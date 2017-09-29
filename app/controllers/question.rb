@@ -36,7 +36,6 @@ post '/questions/:id/comments/new' do
   end
 end
 
-
 ### ADD AN AUTHORIZATION FOR GET & PUT& DELETE VERBS
 get '/questions/:id/edit' do
   @question = Question.find(params[:id])
@@ -57,5 +56,3 @@ delete '/questions/:id' do
   @question.destroy
   redirect '/'
 end
-
-
