@@ -106,21 +106,21 @@ $(document).ready(function() {
 
   $('#question-up-vote').on('submit', function(){
     event.preventDefault();
-    alert("RED PANDA");
 
     var $form = $(this);
     var url = $form.attr("action");
     var method = $form.attr("method");
+    var data = {vote_value: 1};
 
     var request = $.ajax({
       url: url,
-      method: method
+      method: method,
+      data: data
     })
     request.done(function(response){
-      console.log($(response).count);
-      // alert("RUBY");
+      console.log(response);
+      $('#total_votes').empty().append(response);
     })
   });
-
 
 });
