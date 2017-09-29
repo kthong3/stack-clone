@@ -54,6 +54,11 @@ $(document).ready(function() {
     })
   })
 
+   $('#new_comment_button').click(function(){
+    $('#new_comment_button').hide();
+    $('#new_comment_form').show();
+  });
+
   $('#new_comment_form').on('submit', function(){
     event.preventDefault();
     var $form = $(this);
@@ -67,8 +72,8 @@ $(document).ready(function() {
       data: data
     })
     request.done(function(response){
-      var textarea = $('textarea#comment_text').val();
-      console.log(textarea);
+      $('textarea#comment_text').val("");
+      $('.answer').append(response);
     })
   });
 });
