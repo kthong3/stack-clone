@@ -103,4 +103,24 @@ $(document).ready(function() {
       $('#new_question_comment_button').show();
     })
   });
+
+  $('#question-up-vote').on('submit', function(){
+    event.preventDefault();
+    alert("RED PANDA");
+
+    var $form = $(this);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+
+    var request = $.ajax({
+      url: url,
+      method: method
+    })
+    request.done(function(response){
+      console.log($(response).count);
+      // alert("RUBY");
+    })
+  });
+
+
 });

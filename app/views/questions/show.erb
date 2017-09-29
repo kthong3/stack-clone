@@ -16,7 +16,9 @@
         <input type="hidden" value="1" name="vote_value">
         <button type="submit" name="submit"></button>
       </form>
-  <p>Total votes: <%= @question.total_vote_count %></p>
+
+      <%= erb :'questions/_display_vote_count', locals: {question: @question} %>
+
       <form id="question-down-vote" method="post" action='/questions/<%= @question.id %>/votes'>
         <input type="hidden" value="-1" name="vote_value">
         <button type="submit" name="submit"></button>
