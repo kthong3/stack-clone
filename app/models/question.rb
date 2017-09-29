@@ -24,12 +24,9 @@ class Question < ActiveRecord::Base
       if vote_search.up_down_vote != 1
         vote_search.up_down_vote = 1
         vote_search.save
-        p "You already voted but we are changing your vote to up"
       end
-        p "You already voted up! No change"
     else
       self.votes << Vote.create(up_down_vote: 1, poster_id: user_id)
-      p "We have created a new up vote for you"
     end
   end
 
@@ -39,12 +36,9 @@ class Question < ActiveRecord::Base
       if vote_search.up_down_vote != -1
         vote_search.up_down_vote = -1
         vote_search.save
-        p "You already voted but we are changing your vote to down"
       end
-        p "You already voted down! No change"
     else
       self.votes << Vote.create(up_down_vote: -1, poster_id: user_id)
-      p "We have created a new down vote for you"
     end
   end
 
