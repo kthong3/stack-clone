@@ -1,6 +1,10 @@
 <h2><%= answer.answer_text %></h2>
 <ul>
   <li>by: <%= answer.poster.username %></li>
+  <p>Plus votes: <%= answer.positive_vote_count %></p>
+  <p>Negative votes: <%= answer.negative_vote_count %></p>
+  <p>Total votes: <%= answer.total_vote_count %></p>
+
   <% answer.comments.each do |comment| %>
   <li> <%= comment.comment_text %></li>
   <li> by: <%= comment.poster.username %></li>
