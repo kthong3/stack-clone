@@ -4,6 +4,12 @@
   <p>Plus votes: <%= answer.positive_vote_count %></p>
   <p>Negative votes: <%= answer.negative_vote_count %></p>
   <p>Total votes: <%= answer.total_vote_count %></p>
+  <li><a href="/answers/<%= answer.id %>/edit"> EDIT THIS ANSWER </a> |
+  <form action="/answers/<%= answer.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="DELETE THAT ANSWER">
+  </form>
+  </li>
 </ul>
 
 <ul class="answer">
