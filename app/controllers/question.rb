@@ -10,7 +10,7 @@ post '/questions/new' do
   @question = Question.new(question_text: params["question_text"], poster_id: current_user.id)
   if request.xhr?
    if @question.save
-      erb :'questions/_display_form',  locals: {question: @question}, layout: false
+      erb :'questions/_display_question',  locals: {question: @question}, layout: false
     end
   else
     if @question.save

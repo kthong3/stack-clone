@@ -11,14 +11,13 @@
   </ul>
   <%= erb :'questions/_display_question_comment_button', locals: {question: @question} %>
 
-
 <article>
     <% @question.answers.each do |answer| %>
       <form id="question-vote" method="post" action='/questions/<%= @question.id %>'>
         <button type="submit" name="submit"></button>
       </form>
         <%= erb :'questions/_display_answer', locals: {answer: answer} %>
-        <%= erb :'questions/_display_comment_button', locals: {answer: answer} %>
+        <%= erb :'questions/_display_answer_comment_button', locals: {answer: answer} %>
     <% end %>
   </article>
 </div>

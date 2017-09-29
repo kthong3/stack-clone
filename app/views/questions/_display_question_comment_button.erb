@@ -1,9 +1,9 @@
 <div>
     <% if current_user %>
-      <button id="new_comment_button" class="new-comment-button button center">New Comment</button>
-      <form action="/comments/new" method="post" id="new_comment_form">
+      <button id="new_question_comment_button" class="new-comment-button button center">New Comment</button>
+      <form action="/questions/<%= question.id %>/comments/new" method="post" id="new_question_comment_form">
         <label for="comment_text">Comment:<br></label>
-        <textarea id="comment_text" name="comment_text"></textarea><br>
+        <textarea id="question_comment_text" name="comment_text"></textarea><br>
         <input type="hidden" value="<%= question.id%>" name="question_id">
         <input type="submit" class="button" value="Submit Comment">
       </form>

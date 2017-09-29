@@ -422,6 +422,6 @@ th {
   padding: 0;
 }
 
-#new_question_form, #new_answer_form, #new_comment_form {
+#new_question_form, #new_answer_form, #new_answer_comment_form, #new_question_comment_form {
   display: none;
 }
