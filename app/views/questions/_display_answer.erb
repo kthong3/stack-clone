@@ -1,9 +1,6 @@
 <h2><%= answer.answer_text %></h2>
 <ul>
   <li>by: <%= answer.poster.username %></li>
-  <p>Plus votes: <%= answer.positive_vote_count %></p>
-  <p>Negative votes: <%= answer.negative_vote_count %></p>
-  <p>Total votes: <%= answer.total_vote_count %></p>
 
   <form id="answer-up-vote" method="post" action='/answers/<%= answer.id %>/votes'>
     <input type="hidden" value="1" name="vote_value">
