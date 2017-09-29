@@ -26,7 +26,6 @@ $(document).ready(function() {
       $('article').append(response);
       $('#new_question_form').hide();
       $('#new_question_button').show();
-      console.log(response);
     })
   })
 
@@ -52,7 +51,6 @@ $(document).ready(function() {
       $('article').append(response);
       $('#new_answer_form').hide();
       $('#new_answer_button').show();
-      console.log(response);
     })
   })
 });

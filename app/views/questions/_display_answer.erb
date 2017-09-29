@@ -1,4 +1,8 @@
 <h2><%= answer.answer_text %></h2>
 <ul>
   <li>by: <%= answer.poster.username %></li>
+  <% answer.comments.each do |comment| %>
+  <li> <%= comment.comment_text %></li>
+  <li> by: <%= comment.poster.username %></li>
+  <% end %>
 </ul>
