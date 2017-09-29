@@ -1,8 +1,9 @@
-User.create(username: "byzantinist", email: "red_panda@gmail.com", first_name: "Eric", last_name: "Chiang", hashed_password: "byzantinist")
-User.create(username: "victoriajeniluc", email: "vikky@gmail.com", first_name: "Vikky", last_name: "Luc", hashed_password: "victoriajeniluc")
-User.create(username: "kkelley", email: "kara@kelley.com", first_name: "Kara", last_name: "Kelley", hashed_password: "kkelley")
-User.create(username: "kthong3", email: "kthong4@gmail.com", first_name: "Kathiee", last_name: "Thongsakounh", hashed_password: "kthong3")
+User.create(username: "byzantinist", email: "red_panda@gmail.com", first_name: "Eric", last_name: "Chiang", password: "byzantinist")
+User.create(username: "victoriajeniluc", email: "vikky@gmail.com", first_name: "Vikky", last_name: "Luc", password: "victoriajeniluc")
+User.create(username: "kkelley", email: "kara@kelley.com", first_name: "Kara", last_name: "Kelley", password: "kkelley")
+User.create(username: "kthong3", email: "kthong4@gmail.com", first_name: "Kathiee", last_name: "Thongsakounh", password: "kthong3")
 
+# fix password ....!!!
 Question.create(question_text: "How old is Santa Claus?", poster_id: 2)
 Question.create(question_text: "What is the cutest animal?", poster_id: 1)
 Question.create(question_text: "Did I remember to feed Eleanor today?", poster_id: 3)
