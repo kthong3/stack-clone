@@ -31,7 +31,7 @@ post '/answers/:id/comments/new' do
 end
 
 ### ADD AN AUTHORIZATION FOR GET & PUT& DELETE VERBS
-get '/answers/:id/edit'
+get '/answers/:id/edit' do
   @answer = Answer.find(params[:id])
   erb :'answers/edit'
 end
