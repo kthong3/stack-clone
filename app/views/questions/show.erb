@@ -24,7 +24,7 @@
   </ul>
   <%= erb :'questions/_display_question_comment_button', locals: {question: @question} %>
 
-<article>
+<article id="star_answer">
     <% @question.answers.each do |answer| %>
         <%= erb :'questions/_display_answer', locals: {answer: answer} %>
 

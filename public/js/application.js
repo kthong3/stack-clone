@@ -104,6 +104,13 @@ $(document).ready(function() {
     })
   });
 
+
+  $("#star_answer").on("click", "#best_answer", function() {
+    $("#best_answer.active").removeClass('active');
+    $(this).addClass('active');
+  });
+
+
   $('#question-up-vote').on('submit', function(){
     event.preventDefault();
 
@@ -175,6 +182,5 @@ $(document).ready(function() {
       $('.total_votes').empty().append(response);
     })
   });
-
 
 });
