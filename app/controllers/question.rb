@@ -21,12 +21,16 @@ end
 
 post '/questions/:id/comments/new' do
   authenticate!
+
   @question = Question.find(params[:question_id])
   @comment = Comment.new(comment_text: params["comment_text"], poster_id: current_user.id)
   if request.xhr?
-   if @comment.save
-    @question.comments << @comment
-    erb :'questions/_display_new_comment',  locals: {comment: @comment}, layout: false
+    if @comment.save
+      @question.comments << @comment
+      erb :'questions/_display_new_comment',  locals: {comment: @comment}, layout: false
+    else
+      status 422
+      body "Error!"
     end
   else
     if @comment.save
@@ -36,14 +40,17 @@ post '/questions/:id/comments/new' do
   end
 end
 
-### ADD AN AUTHORIZATION FOR GET & PUT& DELETE VERBS
 get '/questions/:id/edit' do
+  authenticate!
   @question = Question.find(params[:id])
+  authorize!(@question.poster)
   erb :'questions/edit'
 end
 
 put '/questions/:id' do
+  authenticate!
   @question = Question.find(params[:id])
+  authorize!(@question.poster)
   @question.assign_attributes(question_text: params[:question_text])
 
   if @question.save
@@ -52,7 +59,9 @@ put '/questions/:id' do
 end
 
 delete '/questions/:id' do
+  authenticate!
   @question = Question.find(params[:id])
+  authorize!(@question.poster)
   @question.destroy
   redirect '/'
 end

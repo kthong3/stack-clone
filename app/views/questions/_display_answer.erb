@@ -13,13 +13,14 @@
     <input type="hidden" value="-1" name="vote_value">
     <button type="submit" name="submit"></button>
   </form>
-
-  <li><a href="/answers/<%= answer.id %>/edit"> EDIT THIS ANSWER </a> |
+  <% if authorized?(answer.poster) %>
+  <li><a href="/answers/<%= answer.id %>/edit"> Edit Your Answer </a>
   <form action="/answers/<%= answer.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="DELETE THAT ANSWER">
+    <input type="submit" value="Delete Your Answer">
   </form>
   </li>
+  <% end %>
 </ul>
 
 <ul class="answer">
