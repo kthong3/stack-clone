@@ -30,15 +30,17 @@ post '/answers/:id/comments/new' do
   end
 end
 
-### ADD AN AUTHORIZATION FOR GET & PUT& DELETE VERBS
 get '/answers/:id/edit' do
+  authenticate!
   @answer = Answer.find(params[:id])
+  authorize!(@answer.poster)
   erb :'answers/edit'
 end
 
 put '/answers/:id' do
+  authenticate!
   @answer = Answer.find(params[:id])
-  p @answer
+  authorize!(@answer.poster)
   @answer.assign_attributes(answer_text: params[:answer_text])
 
   if @answer.save
@@ -47,7 +49,9 @@ put '/answers/:id' do
 end
 
 delete '/answers/:id' do
+  authenticate!
   @answer = Answer.find(params[:id])
+  authorize!(@answer.poster)
   @answer.destroy
   redirect "questions/#{@answer.question_id}"
 end

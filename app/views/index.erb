@@ -1,10 +1,7 @@
 <div>
   <article>
     <% @questions.each do |question| %>
-      <form method="post" action='/'>
-        <button id='vote' type="submit" name="submit"></button>
         <%= erb :'questions/_display_question', locals: {question: question} %>
-      </form>
     <% end %>
   </article>
 </div>
