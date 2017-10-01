@@ -20,7 +20,8 @@
 <ul>
   <% @user.answers.each do |answer|%>
   <li><a href="/questions/<%= answer.question.id %>"><%= answer.question.question_text %></a><br>
-  <%= answer.answer_text %>
+  <%= answer.answer_text %><br>
+  Last edited: <%= answer.updated_at %>
   </li>
   <br>
   <% end %>
@@ -36,12 +37,14 @@
   <% @user.comments.each do |comment|%>
     <% if comment.commentable_type == "Question" %>
       <li><a href="/questions/<%= comment.commentable.id %>"><%= comment.commentable.question_text %></a><br>
-      <%= comment.comment_text %>
+      <%= comment.comment_text %><br>
+      Last edited: <%= comment.updated_at %>
       </li>
     <% else %>
       <li><a href="/questions/<%= comment.commentable.question.id %>"><%= comment.commentable.question.question_text %></a><br>
       <%= comment.commentable.answer_text %><br>
-      <%= comment.comment_text %>
+      <%= comment.comment_text %><br>
+      Last edited: <%= comment.updated_at %>
       </li>
     <% end %>
     <br>
