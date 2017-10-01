@@ -1,4 +1,8 @@
 <div>
+Sort by: <a href="/?sort=chronological">Chronological</a>, <a href="/?sort=recent">Most Recent</a>, <a href="/?sort=votes">Highest Voted</a>, <a href="/?sort=trending">Trending</a>
+</div>
+
+<div>
   <article>
     <% @questions.each do |question| %>
         <%= erb :'questions/_display_question', locals: {question: question} %>
