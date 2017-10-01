@@ -1,4 +1,4 @@
-<div id="question-container">
+<div class="question-container">
   <h1><%= @question.question_text %></h1>
       <form id="question-up-vote" method="post" action='/questions/<%= @question.id %>/votes'>
         <button type="submit" name="submit"></button>
@@ -30,15 +30,15 @@
 
     <% end %>
   </article>
-</div>
 <div>
   <% if current_user %>
-  <button id="new_answer_button" class="new-answer-button button center">New Answer</button>
-        <form action="/answers/new" method="post" id="new_answer_form">
+  <button class="new_answer_button" class="new-answer-button button center">New Answer</button>
+        <form action="/answers/new" method="post" class="new_answer_form">
           <label for="answer_text">Answer:<br></label>
           <textarea id="answer_text" name="answer_text"></textarea><br>
           <input type="hidden" value="<%= @question.id%>" name="question_id">
           <input type="submit" class="button" value="Submit Answer"></input>
         </form>
   <% end %>
+</div>
 </div>
