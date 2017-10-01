@@ -5,7 +5,9 @@
 <% if @user.questions.any? %>
 <ul>
   <% @user.questions.each do |question|%>
-  <li><a href="/questions/<%= question.id %>"><%= question.question_text %></a></li>
+  <li><a href="/questions/<%= question.id %>"><%= question.question_text %></a><br>
+  Last edited: <%= question.updated_at %>
+  </li><br>
   <% end %>
 </ul>
 <% else %>
@@ -24,6 +26,27 @@
   <% end %>
 </ul>
 <% else %>
-  <p>This user hasn't created any questions</p>
+  <p>This user hasn't created any answers</p>
 <% end %>
 
+<h4><%= @user.username %>'s Comments</h4>
+
+<% if @user.comments.any? %>
+<ul>
+  <% @user.comments.each do |comment|%>
+    <% if comment.commentable_type == "Question" %>
+      <li><a href="/questions/<%= comment.commentable.id %>"><%= comment.commentable.question_text %></a><br>
+      <%= comment.comment_text %>
+      </li>
+    <% else %>
+      <li><a href="/questions/<%= comment.commentable.question.id %>"><%= comment.commentable.question.question_text %></a><br>
+      <%= comment.commentable.answer_text %><br>
+      <%= comment.comment_text %>
+      </li>
+    <% end %>
+    <br>
+  <% end %>
+</ul>
+<% else %>
+  <p>This user hasn't created any comments</p>
+<% end %>
