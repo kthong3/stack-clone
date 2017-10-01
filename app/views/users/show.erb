@@ -12,3 +12,18 @@
   <p>This user hasn't created any questions</p>
 <% end %>
 
+<h4><%= @user.username %>'s Answers</h4>
+
+<% if @user.answers.any? %>
+<ul>
+  <% @user.answers.each do |answer|%>
+  <li><a href="/questions/<%= answer.question.id %>"><%= answer.question.question_text %></a><br>
+  <%= answer.answer_text %>
+  </li>
+  <br>
+  <% end %>
+</ul>
+<% else %>
+  <p>This user hasn't created any questions</p>
+<% end %>
+
