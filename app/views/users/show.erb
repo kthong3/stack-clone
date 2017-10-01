@@ -53,3 +53,35 @@
 <% else %>
   <p>This user hasn't created any comments</p>
 <% end %>
+
+<h4><%= @user.username %>'s Votes</h4>
+
+<% if @user.votes.any? %>
+<ul>
+  <% @user.votes.each do |vote|%>
+    <% if vote.votable_type == "Question" %>
+      <li><a href="/questions/<%= vote.votable.id %>"><%= vote.votable.question_text %></a><br>
+      <% if vote.up_down_vote == 1 %>
+        UP VOTE<br>
+      <% else %>
+        DOWN VOTE<br>
+      <% end %>
+      Last edited: <%= vote.updated_at %>
+      </li>
+    <% else %>
+      <li><a href="/questions/<%= vote.votable.question.id %>"><%= vote.votable.question.question_text %></a><br>
+      <%= vote.votable.answer_text %><br>
+      <% if vote.up_down_vote == 1 %>
+        UP VOTE<br>
+      <% else %>
+        DOWN VOTE<br>
+      <% end %>
+      Last edited: <%= vote.updated_at %>
+      </li>
+    <% end %>
+    <br>
+  <% end %>
+</ul>
+<% else %>
+  <p>This user hasn't voted on anything</p>
+<% end %>
