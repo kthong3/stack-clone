@@ -61,8 +61,8 @@ $(document).ready(function() {
 
    $('.question-container').on('click', '.new_answer_comment_button', function(){
     console.log($(this));
-    $(this).closest('.new_answer_comment_button').hide();
-    $(this).find('.new_answer_comment_form').show();
+    $(this).hide();
+    $(this).siblings('.new_answer_comment_form').show();
   });
 
   $('.question-container').on('submit', '.new_answer_comment_form', function(){
@@ -78,8 +78,8 @@ $(document).ready(function() {
       data: data
     })
     request.done(function(response){
-      $('textarea.answer_comment_text').val("");
-      $('.answer').append(response);
+      $('.answer_comment_text').val("");
+      $form.closest('.answer').append(response);
       $('.new_answer_comment_form').hide();
       $('.new_answer_comment_button').show();
     })
@@ -118,7 +118,7 @@ $(document).ready(function() {
   });
 
 
-  $('#question-up-vote').on('submit', function(){
+  $('.question-container').on('submit', '#question-up-vote', function(){
     event.preventDefault();
 
     var $form = $(this);
@@ -136,7 +136,7 @@ $(document).ready(function() {
     })
   });
 
-  $('#question-down-vote').on('submit', function(){
+  $('.question-container').on('submit', '#question-down-vote', function(){
     event.preventDefault();
 
     var $form = $(this);
@@ -154,7 +154,7 @@ $(document).ready(function() {
     })
   });
 
-    $('#answer-up-vote').on('submit', function(){
+    $('.question-container').on('submit', '#answer-up-vote', function(){
     event.preventDefault();
 
     var $form = $(this);
@@ -172,7 +172,7 @@ $(document).ready(function() {
     })
   });
 
-  $('#answer-down-vote').on('submit', function(){
+  $('.question-container').on('submit', '#answer-down-vote', function(){
     event.preventDefault();
 
     var $form = $(this);

@@ -1,11 +1,11 @@
 <div>
-    <% if current_user %>
-      <button class="new_answer_comment_button" class="new-comment-button button center">New Comment</button>
-      <form action="/answers/<%= answer.id %>/comments/new" method="post" class="new_answer_comment_form">
-        <label for="comment_text">Comment:<br></label>
-        <textarea class="answer_comment_text" name="comment_text"></textarea><br>
-        <input type="hidden" value="<%= answer.id%>" name="answer_id">
-        <input type="submit" class="button" value="Submit Comment">
-      </form>
-    <% end %>
+  <% if current_user %>
+    <button class="new_answer_comment_button" class="new-comment-button button center">New Comment</button>
+    <form action="/answers/<%= answer.id %>/comments/new" method="post" class="new_answer_comment_form">
+      <label for="comment_text">Comment:<br></label>
+      <textarea class="answer_comment_text" name="comment_text"></textarea><br>
+      <input type="hidden" value="<%= answer.id%>" name="answer_id">
+      <input type="submit" class="button" value="Submit Comment">
+    </form>
+  <% end %>
 </div>
