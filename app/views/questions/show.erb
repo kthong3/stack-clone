@@ -28,7 +28,6 @@
     <% @question.answers.each do |answer| %>
         <%= erb :'questions/_display_answer', locals: {answer: answer} %>
 
-        <%= erb :'questions/_display_answer_comment_button', locals: {answer: answer} %>
     <% end %>
   </article>
 </div>
