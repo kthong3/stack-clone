@@ -168,7 +168,7 @@ $(document).ready(function() {
       data: data
     })
     request.done(function(response){
-      $('.total_votes').empty().append(response);
+      $form.parent().find('.total_votes').empty().append(response);
     })
   });
 
@@ -186,7 +186,7 @@ $(document).ready(function() {
       data: data
     })
     request.done(function(response){
-      $('.total_votes').empty().append(response);
+      $form.parent().find('.total_votes').empty().append(response);
     })
   });
 
