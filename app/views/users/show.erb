@@ -1,4 +1,4 @@
-<h3>Profile Page</h3>
+<center class="profile-stuff"><h3>Profile Page</h3>
 
 <h4><%= @user.username %>'s Questions</h4>
 
@@ -66,7 +66,7 @@
       <% else %>
         DOWN VOTE<br>
       <% end %>
-      Last edited: <%= vote.updated_at %>
+      Last edited: <%= vote.updated_at.strftime('%B %d, %Y') %>
       </li>
     <% else %>
       <li><a href="/questions/<%= vote.votable.question.id %>"><%= vote.votable.question.question_text %></a><br>
@@ -76,7 +76,7 @@
       <% else %>
         DOWN VOTE<br>
       <% end %>
-      Last edited: <%= vote.updated_at %>
+      Last edited: <%= vote.updated_at.strftime('%B %d, %Y') %>
       </li>
     <% end %>
     <br>
@@ -85,3 +85,4 @@
 <% else %>
   <p>This user hasn't voted on anything</p>
 <% end %>
+</center>

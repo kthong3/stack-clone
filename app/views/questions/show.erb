@@ -1,4 +1,4 @@
-<div class="question-container">
+<center><div class="question-container">
   <h1><%= @question.question_text %></h1>
       <form id="question-up-vote" method="post" action='/questions/<%= @question.id %>/votes'>
         <button type="submit" name="submit"></button>
@@ -42,3 +42,4 @@
   <% end %>
 </div>
 </div>
+</center>
