@@ -1,5 +1,5 @@
 <div class="wrapper">
-<div>
+<div class= "sort-by">
 Sort by: <a href="/?sort=chronological">Chronological</a>, <a href="/?sort=recent">Most Recent</a>, <a href="/?sort=votes">Highest Voted</a>, <a href="/?sort=trending">Trending</a>
 </div>
 
@@ -12,12 +12,14 @@ Sort by: <a href="/?sort=chronological">Chronological</a>, <a href="/?sort=recen
 </div>
 <div>
   <% if current_user %>
-  <button class="new_question_button" class="new-question-button button center">New Question</button>
+  <center><button class="new_question_button" class="new-question-button button center">New Question</button></center>
+    <div class="form-stuff">
       <form action="/questions/new" method="post" class="new_question_form">
         <label for="question_text">Question:<br></label>
         <textarea class="question_text" name="question_text"></textarea><br>
-        <input type="submit" class="button" value="Submit Question"></input>
+        <center><input type="submit" class="button" value="Submit Question"></input></center>
       </form>
+    </div>
   <% end %>
 </div>
 </div>

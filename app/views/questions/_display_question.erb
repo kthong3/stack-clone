@@ -1,6 +1,6 @@
-<h2><a href="/questions/<%= question.id %>"><%= question.question_text %></a></h2>
-<ul>
+<h2 class="question"><a href="/questions/<%= question.id %>"><%= question.question_text %></a></h2>
+<ul class="question_content">
   <li>by: <%= question.poster.username %><br>
   Net Votes: <%= question.total_vote_count %>, Answers: <%= question.answers.count %>, Comments: <%= question.comments.count %> <%= @sort %><br>
-  Last edited: <%= question.updated_at %></li>
+  Last edited: <%= question.updated_at.strftime('%B %d, %Y') %></li>
 </ul>
