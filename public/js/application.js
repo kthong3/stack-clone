@@ -56,11 +56,10 @@ $(document).ready(function() {
       $('article').append(response);
       $('.new_answer_form').hide();
       $('.new_answer_button').show();
-    })
-  })
+    });
+  });
 
    $('.question-container').on('click', '.new_answer_comment_button', function(){
-    console.log($(this));
     $(this).hide();
     $(this).siblings('.new_answer_comment_form').show();
   });
@@ -79,7 +78,7 @@ $(document).ready(function() {
     })
     request.done(function(response){
       $('.answer_comment_text').val("");
-      $form.closest('.answer').append(response);
+      $form.closest('.answer-wrapper').find('.answer').append(response);
       $('.new_answer_comment_form').hide();
       $('.new_answer_comment_button').show();
     })

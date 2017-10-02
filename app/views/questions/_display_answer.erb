@@ -1,35 +1,37 @@
-<h2><%= answer.answer_text %></h2>
-   <button type="button" id="best_answer">&#x2605</button>
-<ul>
-  <li>by: <%= answer.poster.username %></li>
+<div class="answer-wrapper">
+  <h2><%= answer.answer_text %></h2>
+     <button type="button" id="best_answer">&#x2605</button>
+  <ul>
+    <li>by: <%= answer.poster.username %></li>
 
-  <form id="answer-up-vote" method="post" action='/answers/<%= answer.id %>/votes'>
-    <input type="hidden" value="1" name="vote_value">
-    <button type="submit" name="submit"></button>
-  </form>
 
-  <%= erb :'questions/_display_answer_vote_count', locals: {answer: answer} %>
+    <form id="answer-up-vote" method="post" action='/answers/<%= answer.id %>/votes'>
+      <input type="hidden" value="1" name="vote_value">
+      <button type="submit" name="submit"></button>
+    </form>
 
-  <form id="answer-down-vote" method="post" action='/answers/<%= answer.id %>/votes'>
-    <input type="hidden" value="-1" name="vote_value">
-    <button type="submit" name="submit"></button>
-  </form>
-  <% if authorized?(answer.poster) %>
-  <li><a href="/answers/<%= answer.id %>/edit"> Edit Your Answer </a>
-  <form action="/answers/<%= answer.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Your Answer">
-  </form>
-  </li>
-  <% end %>
-</ul>
+    <%= erb :'questions/_display_answer_vote_count', locals: {answer: answer} %>
 
-<ul class="answer">
-  <% answer.comments.each do |comment| %>
-    <%= erb :'questions/_display_new_comment', locals: {comment: comment} %>
-  <% end %>
+    <form id="answer-down-vote" method="post" action='/answers/<%= answer.id %>/votes'>
+      <input type="hidden" value="-1" name="vote_value">
+      <button type="submit" name="submit"></button>
+    </form>
+    <% if authorized?(answer.poster) %>
+    <li><a href="/answers/<%= answer.id %>/edit"> Edit Your Answer </a>
+    <form action="/answers/<%= answer.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Your Answer">
+    </form>
+    </li>
+    <% end %>
+  </ul>
 
-</ul>
+  <ul class="answer">
+    <% answer.comments.each do |comment| %>
+      <%= erb :'questions/_display_new_comment', locals: {comment: comment} %>
+    <% end %>
 
-<%= erb :'questions/_display_answer_comment_button', locals: {answer: answer} %>
+  </ul>
 
+  <%= erb :'questions/_display_answer_comment_button', locals: {answer: answer} %>
+</div>
