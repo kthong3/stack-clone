@@ -1,13 +1,13 @@
 <center><div class="question-container">
   <h1><%= @question.question_text %></h1>
       <form id="question-up-vote" method="post" action='/questions/<%= @question.id %>/votes'>
-        <button type="submit" name="submit"></button>
+        <button type="submit" name="submit">  &#128077;</button>
       </form>
 
       <%= erb :'questions/_display_question_vote_count', locals: {question: @question} %>
 
       <form id="question-down-vote" method="post" action='/questions/<%= @question.id %>/votes'>
-        <button type="submit" name="submit"></button>
+        <button type="submit" name="submit"> &#128078;</button>
       </form>
   <% if authorized?(@question.poster) %>
     <p> <a href="/questions/<%= @question.id %>/edit"> Edit Your Question </a></p>
