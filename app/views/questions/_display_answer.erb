@@ -7,14 +7,14 @@
 
     <form id="answer-up-vote" method="post" action='/answers/<%= answer.id %>/votes'>
       <input type="hidden" value="1" name="vote_value">
-      <button type="submit" name="submit"></button>
+      <button type="submit" name="submit">&#128077;</button>
     </form>
 
     <%= erb :'questions/_display_answer_vote_count', locals: {answer: answer} %>
 
     <form id="answer-down-vote" method="post" action='/answers/<%= answer.id %>/votes'>
       <input type="hidden" value="-1" name="vote_value">
-      <button type="submit" name="submit"></button>
+      <button type="submit" name="submit">&#128078;</button>
     </form>
     <% if authorized?(answer.poster) %>
     <li><a href="/answers/<%= answer.id %>/edit"> Edit Your Answer </a>
