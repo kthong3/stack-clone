@@ -1,11 +1,13 @@
-<h1> Login </h1>
+<h3> Login </h3>
 
   <% if @errors%>
     <p><%= @errors %></p>
   <% end %>
 
-<form method="POST" action="/sessions">
+<div class="form-stuff">
+<center><form method="POST" action="/sessions">
   <input type="text" name="username" placeholder="Username">
   <input type="password" name="password" placeholder="Password">
   <input type="submit">
-</form>
+</form></center>
+</div>

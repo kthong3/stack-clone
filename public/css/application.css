@@ -1,3 +1,111 @@
+.title {
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  font-size: large;
+  font-weight: bold;
+  margin: 0.5%;
+}
+
+
+ul.navigation-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+}
+
+li.navigation {
+    float:right;
+}
+
+li.navigation a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.navigation a:hover {
+    background-color: #111;
+}
+
+#logout {
+     background:none;
+     color:white;
+     border:none;
+     font: inherit;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+#logout:hover {
+    background-color: #111;
+}
+
+.sort-by {
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  text-align: center;
+  margin: 1%;
+  padding: 2%;
+}
+
+.question {
+  margin: 1%;
+  border-top: solid grey;
+  text-align: center;
+  display: block;
+}
+
+.question_content {
+  list-style-type: none;
+  text-align: center;
+}
+
+a {
+  color: #5591CD;
+}
+.answer {
+  list-style-type: none;
+}
+
+#star_answer li {
+  list-style-type: none;
+}
+
+.form-stuff {
+  text-align: center;
+  margin: 2%;
+}
+
+input:not(#logout) {
+  display: block;
+  margin: 1%;
+  width: 20%;
+  vertical-align: middle;
+}
+
+
+
+h3 {
+  text-align: center;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  margin: 2%;
+}
+
+.profile-stuff {
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+}
+
+.question-container {
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+/*  margin-left: 5%;
+*/}
+
 #best_answer {
 }
 

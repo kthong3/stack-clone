@@ -1,8 +1,9 @@
 <div class="answer-wrapper">
   <h2><%= answer.answer_text %></h2>
-     <button type="button" id="best_answer">STAR</button>
+     <button type="button" id="best_answer">&#x2605</button>
   <ul>
     <li>by: <%= answer.poster.username %></li>
+
 
     <form id="answer-up-vote" method="post" action='/answers/<%= answer.id %>/votes'>
       <input type="hidden" value="1" name="vote_value">

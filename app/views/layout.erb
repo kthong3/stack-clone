@@ -12,27 +12,28 @@
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
   <script src="/js/application.js"></script>
-  <title>Stack Overflow</title>
+
+  <title class="title">Stack Overflow</title>
 
 </head>
 <body>
   <header>
-    <h1>Stack Overflow</h1>
+    <h1 class="title">Stack Overflow</h1>
     <div>
       <nav>
-        <ul>
+        <ul class ="navigation-list">
           <% if logged_in? %>
-          <li><a href="/users/<%= current_user.id %>">Hello, <%= current_user.username %></a></li>
-          <li><form method="POST" action="/sessions">
+          <li class ="navigation"><a href="/users/<%= current_user.id %>">Hello, <%= current_user.username %></a></li>
+          <li class="navigation"><form method="POST" action="/sessions">
               <input type="hidden" name="_method" value="DELETE" />
-              <input type="submit" class="button" value="Log Out" />
+              <input id="logout"  type="submit" class="button" value="Log Out" />
             </form>
           </li>
-          <li><a href="/">Home</a></li>
+          <li class="navigation"><a href="/">Home</a></li>
           <% else %>
-            <li><a href="/">Home</a></li>
-            <li><a href='/users/new'>Register</a></li>
-            <li><a href="/sessions/new">Log In</a></li>
+            <li class="navigation"><a href="/">Home</a></li>
+            <li class= "navigation"><a href='/users/new'>Register</a></li>
+            <li class= "navigation"><a href="/sessions/new">Log In</a></li>
             <% end %>
         </ul>
       </nav>
